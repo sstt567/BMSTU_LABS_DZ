@@ -58,7 +58,7 @@ WHERE u.name = 'Иван Сухов';
 SELECT id, title, due_date, status 
 FROM tasks 
 WHERE priority = 'Высокий' 
-AND due_date BETWEEN '2024-01-01' AND '2024-12-31';  
+AND due_date BETWEEN CURRENT_DATE AND CURRENT_DATE + INTERVAL 7 DAY;
 --5.4--
 SELECT status, COUNT(*) as task_count 
 FROM tasks 
@@ -82,3 +82,4 @@ WHERE id = 1;
 DELETE FROM task_assignments WHERE task_id = 2;
 
 DELETE FROM tasks WHERE id = 2;
+
