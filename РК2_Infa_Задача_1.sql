@@ -117,7 +117,7 @@ COMMIT;
 WITH target AS (
     SELECT student_id, group_number
     FROM students 
-    WHERE student_id = 3 -- пример: ищем для студента с ID=3
+    WHERE student_id = 3 
 )
 SELECT s.*
 FROM students s
@@ -147,10 +147,11 @@ FROM notes n
 JOIN students s ON n.student_id = s.student_id
 WHERE n.note_tsvector @@ to_tsquery('russian', 'Информатика');
 
--- 5. Обновить посещаемость студента на конкретную дату через транзакцию
+-- 5. 
 BEGIN;
 UPDATE attendance 
 SET status = 'present'
 WHERE student_id = 1 
   AND date_attended = '2024-12-01';
 COMMIT;
+
